@@ -1,0 +1,21 @@
+@import './s-grid.scss';
+//* Google font Barlow
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&display=swap');
+
+html, body {
+	margin: 0;
+}
+body {
+	font-family: 'Barlow', sans-serif;
+}
+
+.s-container {
+	.s-row {
+		> * {
+			background-color: rgba(255, 191, 127, 0.1);
+		}
+		> [class^="s-col-"] {
+			background-color: rgba(159, 255, 127, 0.1);
+		}
+	}
+}

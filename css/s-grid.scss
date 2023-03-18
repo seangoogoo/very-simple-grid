@@ -1,0 +1,98 @@
+/// Very simple responsive grid system
+/// Inspired by https://primefaces.org
+
+//* Margin variable
+$s-gutter: 1rem;
+
+//* DIVI breakpoints
+$s-breakpoints: (
+	'sm':  479px,
+	'md': 768px,
+	'lg':  980px
+) !default;
+//* DIVI default container max-width
+$s-container-max-width: 1080px;
+
+$s-w-sizes: (
+	1: 8.3333%,
+	2: 16.6667%,
+	3: 25%,
+	4: 33.3333%,
+	5: 41.6667%,
+	6: 50%,
+	7: 58.3333%,
+	8: 66.6667%,
+	9: 75%,
+	10: 83.3333%,
+	11: 91.6667%,
+	12: 100%
+);
+
+/// Mixin example to manage responsive breakpoints
+/// https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $s-breakpoints
+@mixin flex-definition {
+	flex: 0 0 auto;
+	padding: 0 $s-gutter;
+	// background-color: rgba(0, 0, 0, 0.1);
+}
+
+@mixin columns($bp: 0) {
+	//* Media queries columns definitions
+	@if map-has-key($s-breakpoints, $bp) {
+		@media (min-width: map-get($s-breakpoints, $bp)) {
+			@for $i from 1 through 12 {
+				.s-col-#{$bp}-#{$i} {
+					@include flex-definition;
+					width: map-get($s-w-sizes, $i);
+				}
+			}
+		}
+	}
+	//* Default columns
+	@else {
+		@for $i from 1 through 12 {
+			.s-col-#{$i} {
+				// @include flex-definition;
+				width: map-get($s-w-sizes, $i);
+			}
+		}
+	}
+}
+
+.s-container {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	padding: 0 $s-gutter;
+	max-width: $s-container-max-width;
+}
+
+
+.s-row {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 (-$s-gutter);
+	// > .s-col,
+	// > [class*="s-col"] {
+	// 	box-sizing: border-box;
+	// }
+	> * {
+		box-sizing: border-box;
+		// flex-grow: 1;
+		// flex-basis: 0;
+		// padding: 0 $s-gutter;
+		@include flex-definition;
+		width: 100%;
+	}
+	
+	@include columns();
+	@include columns("sm");
+	@include columns("md");
+	@include columns("lg");
+	
+	&.s-justify-content-center {
+		justify-content: center;
+	}
+}
