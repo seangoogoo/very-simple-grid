@@ -1,8 +1,12 @@
 /// Very simple responsive grid system
 /// Inspired by https://primefaces.org
 
-//* Margin variable
-$s-gutter: 1rem;
+:root{
+	//* Margin variable
+	--s-gutter: 1rem;
+	//* DIVI default container max-width
+	--s-container-max-width: 1080px;
+}
 
 //* DIVI breakpoints
 $s-breakpoints: (
@@ -10,8 +14,6 @@ $s-breakpoints: (
 	'md': 768px,
 	'lg':  980px
 ) !default;
-//* DIVI default container max-width
-$s-container-max-width: 1080px;
 
 $s-w-sizes: (
 	1: 8.3333%,
@@ -28,14 +30,16 @@ $s-w-sizes: (
 	12: 100%
 );
 
-/// Mixin example to manage responsive breakpoints
-/// https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
-/// @param {String} $breakpoint - Breakpoint name
-/// @require $s-breakpoints
+//* Mixin example to manage responsive breakpoints
+//* https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
+//* @param {String} $breakpoint - Breakpoint name
+//* @require $s-breakpoints
 @mixin flex-definition {
+	//* The flex property is a shorthand property for:
+	//* flex: [flex-grow] [flex-shrink] [flex-basis]
+	// flex: 0 1 auto; //* Default flex property value
 	flex: 0 0 auto;
-	padding: 0 $s-gutter;
-	// background-color: rgba(0, 0, 0, 0.1);
+	padding-inline: var(--s-gutter);
 }
 
 @mixin columns($bp: 0) {
@@ -50,11 +54,11 @@ $s-w-sizes: (
 			}
 		}
 	}
-	//* Default columns
+	//* Base columns
 	@else {
 		@for $i from 1 through 12 {
 			.s-col-#{$i} {
-				// @include flex-definition;
+				@include flex-definition;
 				width: map-get($s-w-sizes, $i);
 			}
 		}
@@ -62,29 +66,32 @@ $s-w-sizes: (
 }
 
 .s-container {
-	display: flex;
-	flex-direction: column;
-	margin: 0 auto;
-	padding: 0 $s-gutter;
-	max-width: $s-container-max-width;
+	margin-inline: auto;
+	padding-inline: var(--s-gutter);
+	max-width: var(--s-container-max-width);
 }
-
 
 .s-row {
 	display: flex;
 	flex-wrap: wrap;
-	margin: 0 (-$s-gutter);
+	margin-inline: calc(-1 * var(--s-gutter));
 	// > .s-col,
 	// > [class*="s-col"] {
 	// 	box-sizing: border-box;
 	// }
 	> * {
 		box-sizing: border-box;
-		// flex-grow: 1;
-		// flex-basis: 0;
-		// padding: 0 $s-gutter;
-		@include flex-definition;
+		// flex: 0 1 auto;
+		// @include flex-definition;
+
+		flex-shrink: 0;
 		width: 100%;
+		max-width: 100%;
+		padding-inline: var(--s-gutter);
+	}
+	//* Proportional stacked columns
+	.s-col {
+		flex: 1 0 0%;
 	}
 	
 	@include columns();
@@ -95,4 +102,8 @@ $s-w-sizes: (
 	&.s-justify-content-center {
 		justify-content: center;
 	}
+}
+
+.s-text-center {
+	text-align: center;
 }

@@ -1,244 +1,279 @@
+:root {
+  --s-gutter: 1rem;
+  --s-container-max-width: 1080px;
+}
+
 .s-container {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  padding: 0 1rem;
-  max-width: 1080px;
+  margin-inline: auto;
+  padding-inline: var(--s-gutter);
+  max-width: var(--s-container-max-width);
 }
 
 .s-row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -1rem;
+  margin-inline: calc(-1 * var(--s-gutter));
 }
 .s-row > * {
   box-sizing: border-box;
-  flex: 0 0 auto;
-  padding: 0 1rem;
+  flex-shrink: 0;
   width: 100%;
+  max-width: 100%;
+  padding-inline: var(--s-gutter);
+}
+.s-row .s-col {
+  flex: 1 0 0%;
 }
 .s-row .s-col-1 {
+  flex: 0 0 auto;
+  padding-inline: var(--s-gutter);
   width: 8.3333%;
 }
 .s-row .s-col-2 {
+  flex: 0 0 auto;
+  padding-inline: var(--s-gutter);
   width: 16.6667%;
 }
 .s-row .s-col-3 {
+  flex: 0 0 auto;
+  padding-inline: var(--s-gutter);
   width: 25%;
 }
 .s-row .s-col-4 {
+  flex: 0 0 auto;
+  padding-inline: var(--s-gutter);
   width: 33.3333%;
 }
 .s-row .s-col-5 {
+  flex: 0 0 auto;
+  padding-inline: var(--s-gutter);
   width: 41.6667%;
 }
 .s-row .s-col-6 {
+  flex: 0 0 auto;
+  padding-inline: var(--s-gutter);
   width: 50%;
 }
 .s-row .s-col-7 {
+  flex: 0 0 auto;
+  padding-inline: var(--s-gutter);
   width: 58.3333%;
 }
 .s-row .s-col-8 {
+  flex: 0 0 auto;
+  padding-inline: var(--s-gutter);
   width: 66.6667%;
 }
 .s-row .s-col-9 {
+  flex: 0 0 auto;
+  padding-inline: var(--s-gutter);
   width: 75%;
 }
 .s-row .s-col-10 {
+  flex: 0 0 auto;
+  padding-inline: var(--s-gutter);
   width: 83.3333%;
 }
 .s-row .s-col-11 {
+  flex: 0 0 auto;
+  padding-inline: var(--s-gutter);
   width: 91.6667%;
 }
 .s-row .s-col-12 {
+  flex: 0 0 auto;
+  padding-inline: var(--s-gutter);
   width: 100%;
 }
 @media (min-width: 479px) {
   .s-row .s-col-sm-1 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 8.3333%;
   }
   .s-row .s-col-sm-2 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 16.6667%;
   }
   .s-row .s-col-sm-3 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 25%;
   }
   .s-row .s-col-sm-4 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 33.3333%;
   }
   .s-row .s-col-sm-5 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 41.6667%;
   }
   .s-row .s-col-sm-6 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 50%;
   }
   .s-row .s-col-sm-7 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 58.3333%;
   }
   .s-row .s-col-sm-8 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 66.6667%;
   }
   .s-row .s-col-sm-9 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 75%;
   }
   .s-row .s-col-sm-10 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 83.3333%;
   }
   .s-row .s-col-sm-11 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 91.6667%;
   }
   .s-row .s-col-sm-12 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 100%;
   }
 }
 @media (min-width: 768px) {
   .s-row .s-col-md-1 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 8.3333%;
   }
   .s-row .s-col-md-2 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 16.6667%;
   }
   .s-row .s-col-md-3 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 25%;
   }
   .s-row .s-col-md-4 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 33.3333%;
   }
   .s-row .s-col-md-5 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 41.6667%;
   }
   .s-row .s-col-md-6 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 50%;
   }
   .s-row .s-col-md-7 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 58.3333%;
   }
   .s-row .s-col-md-8 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 66.6667%;
   }
   .s-row .s-col-md-9 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 75%;
   }
   .s-row .s-col-md-10 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 83.3333%;
   }
   .s-row .s-col-md-11 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 91.6667%;
   }
   .s-row .s-col-md-12 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 100%;
   }
 }
 @media (min-width: 980px) {
   .s-row .s-col-lg-1 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 8.3333%;
   }
   .s-row .s-col-lg-2 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 16.6667%;
   }
   .s-row .s-col-lg-3 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 25%;
   }
   .s-row .s-col-lg-4 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 33.3333%;
   }
   .s-row .s-col-lg-5 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 41.6667%;
   }
   .s-row .s-col-lg-6 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 50%;
   }
   .s-row .s-col-lg-7 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 58.3333%;
   }
   .s-row .s-col-lg-8 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 66.6667%;
   }
   .s-row .s-col-lg-9 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 75%;
   }
   .s-row .s-col-lg-10 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 83.3333%;
   }
   .s-row .s-col-lg-11 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 91.6667%;
   }
   .s-row .s-col-lg-12 {
     flex: 0 0 auto;
-    padding: 0 1rem;
+    padding-inline: var(--s-gutter);
     width: 100%;
   }
 }
 .s-row.s-justify-content-center {
   justify-content: center;
+}
+
+.s-text-center {
+  text-align: center;
 }/*# sourceMappingURL=s-grid.css.map */

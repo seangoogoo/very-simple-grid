@@ -12,10 +12,12 @@ body {
 .s-container {
 	.s-row {
 		> * {
-			background-color: rgba(255, 191, 127, 0.1);
+			background-color: rgba(61, 79, 124, 0.15);
+			border: solid 1px rgba(61, 79, 124, 0.2);
 		}
-		> [class^="s-col-"] {
-			background-color: rgba(159, 255, 127, 0.1);
+		> [class^="s-col"] {
+			background-color: rgba(86, 61, 124, .15);
+			border: solid 1px rgba(86, 61, 124, .2);
 		}
 	}
 }
