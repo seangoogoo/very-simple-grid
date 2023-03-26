@@ -13,8 +13,14 @@
 	],
 	"liveSassCompile.settings.excludeList": [
 		"**/node_modules/**",
-		".vscode/**"
+		"/.vscode/**",
+		"/css/s-variables.scss",
+		"/css/s-grid.scss",
+		"/css/s-utilities.scss"
 	],
 	"liveSassCompile.settings.generateMap": true,
-	"liveSassCompile.settings.autoprefix": ["defaults"]
+	"liveSassCompile.settings.autoprefix": [
+		"defaults"
+	],
+	"liveSassCompile.settings.showOutputWindowOn": "Debug"
 }

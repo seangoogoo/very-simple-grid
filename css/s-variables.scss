@@ -1,0 +1,12 @@
+//**********************
+//* DIVI breakpoints
+//* Common variables of:
+//* - s-grid.scss
+//* - s-utilities.scss
+
+$s-breakpoints: (
+	'sm':  479px,
+	'md': 768px,
+	'lg':  980px
+) !default;
+//* '!default' flag means that the variable can be override somewhere else.

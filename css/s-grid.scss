@@ -1,20 +1,15 @@
-/// Very simple responsive grid system
-/// Inspired by https://primefaces.org
+//************************************
+//* Very simple responsive grid system
+//* Inspired by https://primefaces.org
 
 :root{
-	//* Margin variable
+	//* Flex grid margin variable
 	--s-gutter: 1rem;
 	//* DIVI default container max-width
 	--s-container-max-width: 1080px;
 }
 
-//* DIVI breakpoints
-$s-breakpoints: (
-	'sm':  479px,
-	'md': 768px,
-	'lg':  980px
-) !default;
-
+//* Flex grid: 12 columns percentage widths
 $s-w-sizes: (
 	1: 8.3333%,
 	2: 16.6667%,
@@ -65,25 +60,12 @@ $s-w-sizes: (
 	}
 }
 
-.s-container {
-	margin-inline: auto;
-	padding-inline: var(--s-gutter);
-	max-width: var(--s-container-max-width);
-}
-
 .s-row {
 	display: flex;
 	flex-wrap: wrap;
 	margin-inline: calc(-1 * var(--s-gutter));
-	// > .s-col,
-	// > [class*="s-col"] {
-	// 	box-sizing: border-box;
-	// }
 	> * {
 		box-sizing: border-box;
-		// flex: 0 1 auto;
-		// @include flex-definition;
-
 		flex-shrink: 0;
 		width: 100%;
 		max-width: 100%;
@@ -93,17 +75,21 @@ $s-w-sizes: (
 	.s-col {
 		flex: 1 0 0%;
 	}
-	
+	//* Create responsive width columns
 	@include columns();
-	@include columns("sm");
-	@include columns("md");
-	@include columns("lg");
-	
-	&.s-justify-content-center {
-		justify-content: center;
+	// @include columns("sm");
+	// @include columns("md");
+	// @include columns("lg");
+	@each $bpName in map-keys($s-breakpoints) {
+		@include columns($bpName);
 	}
 }
 
-.s-text-center {
-	text-align: center;
+.s-container,
+.s-container-fluid {
+	margin-inline: auto;
+	padding-inline: var(--s-gutter);
+}
+.s-container {
+	max-width: var(--s-container-max-width);
 }

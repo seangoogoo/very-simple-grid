@@ -1,0 +1,240 @@
+//********************************
+//* Utilities:
+//* - spacing: margin and padding with breakpoints,
+//* - display properties classes with breakpoints,
+//* - flex direction classes with breakpoints,
+//* - flex justify-content and align-items classes with breakpoints,
+//* - text alignment classes
+
+//* Inspired by https://dev.to/ahmedsarhan/how-to-build-your-own-utility-framework-using-scss-25dh
+
+//* Margins and paddings
+//* As in Bootstrap,
+//* the classes are named using the format 
+//* {property}{sides}-{size} for xs and {property}{sides}-{breakpoint}-{size} for sm, md, lg.
+//* Modern usage of margin-block, margin-inline, padding-block, padding-inline and variations instead of *-top, *-bottom, *-left and *-right for margin and padding.
+
+$s-spacer: 1rem !default;
+$s-spacerSideMargin: (
+	'': 'margin',
+	'x': 'margin-inline',
+	'y': 'margin-block',
+	't': 'margin-block-start',
+	'b': 'margin-block-end',
+	'l': 'margin-inline-start',
+	'r': 'margin-inline-end'
+);
+$s-spacerSidePadding: (
+	'': 'padding',
+	'x': 'padding-inline',
+	'y': 'padding-block',
+	't': 'padding-block-start',
+	'b': 'padding-block-end',
+	'l': 'padding-inline-start',
+	'r': 'padding-inline-end'
+);
+
+//* In this object, 'rem' is returned as the default unit.
+$s-spacerFormulae: (
+	auto: auto,
+	0: 0,
+	1: #{$s-spacer / 4},
+	2: #{$s-spacer / 2},
+	3: #{$s-spacer},
+	4: #{$s-spacer * 1.5},
+	5: #{$s-spacer * 3}
+) !default;
+
+//* Space builder
+@mixin spacePropertyLoop($spaceType, $breakPointName) {
+	$bp: if($breakPointName, '-#{$breakPointName}', '');
+	$propertyType: null; //* The variable with a default value needs to be defined before being modified
+	@if $spaceType == 'm' {
+		$propertyType: $s-spacerSideMargin;
+	}
+	@else if $spaceType == 'p' {
+		$propertyType: $s-spacerSidePadding;
+	}
+
+	@each $sideName, $property in $propertyType {
+		@each $index, $spacing in $s-spacerFormulae {
+			.#{$spaceType}#{$sideName}#{$bp}-#{$index} { #{$property}: $spacing !important; }
+		}
+	}
+}
+@mixin spaceBuilder($breakPointName: 0, $spaceType: 'm') {
+	@if not(map-has-key($s-breakpoints, $breakPointName)) {
+		@include spacePropertyLoop($spaceType, 0);
+	}
+	@else {
+		@media (min-width: map-get($s-breakpoints, $breakPointName)) {
+			@include spacePropertyLoop($spaceType, $breakPointName);
+		}
+	}
+}
+//* Generate margins
+@include spaceBuilder(0, 'm');
+@each $bpName in map-keys($s-breakpoints) {
+	@include spaceBuilder($bpName, 'm');
+}
+//* Generate paddings
+@include spaceBuilder(0, 'p');
+@each $bpName in map-keys($s-breakpoints) {
+	@include spaceBuilder($bpName, 'p');
+}
+
+//**************************************
+//* Generates display properties classes
+$displayProps: (
+	'none',
+	'inline',
+	'inline-block',
+	'block',
+	'grid',
+	'table',
+	'table-cell',
+	'table-row',
+	'flex',
+	'inline-flex'
+);
+@mixin displayPropsBuilder($bpName: 0) {
+	$bp: if($bpName, '-#{$bpName}', '');
+	@if map-has-key($s-breakpoints, $bpName) {
+		@media (min-width: map-get($s-breakpoints, $bpName)) {
+			@each $display in $displayProps {
+				.d#{$bp}-#{$display},
+				.s-d#{$bp}-#{$display} {
+					display: #{$display} !important;
+				}
+			}
+		}
+	}
+	@else {
+		@each $display in $displayProps {
+			.d-#{$display},
+			.s-d-#{$display} {
+				display: #{$display} !important;
+			}
+		}
+	}
+}
+@include displayPropsBuilder();
+@each $bpName in map-keys($s-breakpoints) {
+	@include displayPropsBuilder($bpName);
+}
+
+//****************
+//* Flex direction
+$flexDirections: (
+	'row',
+	'row-reverse',
+	'column',
+	'column-reverse'
+);
+@mixin flexDirBuilder($bpName: 0) {
+	$bp: if($bpName, '-#{$bpName}', '');
+	@if map-has-key($s-breakpoints, $bpName) {
+		@media (min-width: map-get($s-breakpoints, $bpName)) {
+			@each $flexDir in $flexDirections {
+				.flex#{$bp}-#{$flexDir},
+				.s-flex#{$bp}-#{$flexDir} {
+					flex-direction: #{$flexDir} !important;
+				}
+			}
+		}
+	}
+	@else {
+		@each $flexDir in $flexDirections {
+			.flex-#{$flexDir},
+			.s-flex-#{$flexDir} {
+				flex-direction: #{$flexDir} !important;
+			}
+		}
+	}
+}
+@include flexDirBuilder();
+@each $bpName in map-keys($s-breakpoints) {
+	@include flexDirBuilder($bpName);
+}
+
+//***************************
+//* Flex alignments utilities
+
+//* Justify-content
+$justifyAlignments: (
+	'start': flex-start,
+	'end': flex-end,
+	'center': center,
+	'between': space-between,
+	'around': space-around,
+	'evenly': space-evenly
+);
+@mixin justifyContentBuilder($bpName: 0) {
+	$bp: if($bpName, '-#{$bpName}', '');
+	@if map-has-key($s-breakpoints, $bpName) {
+		@media (min-width: map-get($s-breakpoints, $bpName)) {
+			@each $align in map-keys($justifyAlignments) {
+				.justify-content#{$bp}-#{$align},
+				.s-justify-content#{$bp}-#{$align} {
+					justify-content: map-get($justifyAlignments, $align) !important;
+				}
+			}
+		}
+	}
+	@else {
+		@each $align in map-keys($justifyAlignments) {
+			.justify-content-#{$align},
+			.s-justify-content-#{$align} {
+				justify-content: #{map-get($justifyAlignments, $align)} !important;
+			}
+		}
+	}
+}
+@include justifyContentBuilder();
+@each $bpName in map-keys($s-breakpoints) {
+	@include justifyContentBuilder($bpName);
+}
+
+//* Align-items
+$alignAlignments: (
+	'start': flex-start,
+	'end': flex-end,
+	'center': center,
+	'baseline': baseline,
+	'stretch': stretch
+);
+@mixin alignItemsBuilder($bpName: 0) {
+	$bp: if($bpName, '-#{$bpName}', '');
+	@if map-has-key($s-breakpoints, $bpName) {
+		@media (min-width: map-get($s-breakpoints, $bpName)) {
+			@each $align in map-keys($alignAlignments) {
+				.align-items#{$bp}-#{$align},
+				.s-align-items#{$bp}-#{$align} {
+					align-items: map-get($alignAlignments, $align) !important;
+				}
+			}
+		}
+	}
+	@else {
+		@each $align in map-keys($alignAlignments) {
+			.align-items-#{$align},
+			.s-align-items-#{$align} {
+				align-items: #{map-get($alignAlignments, $align)} !important;
+			}
+		}
+	}
+}
+@include alignItemsBuilder();
+@each $bpName in map-keys($s-breakpoints) {
+	@include alignItemsBuilder($bpName);
+}
+
+//****************
+//* Text alignment
+$textAlignments: ("left", "right", "center", "revert");
+@each $textAlign in $textAlignments {
+	.text-#{$textAlign},
+	.s-text-#{$textAlign} {
+			text-align: #{$textAlign} !important;
+  }
+}

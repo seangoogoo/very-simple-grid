@@ -1,4 +1,6 @@
+@import './s-variables.scss';
 @import './s-grid.scss';
+@import './s-utilities.scss';
 //* Google font Barlow
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&display=swap');
 
@@ -8,7 +10,11 @@ html, body {
 body {
 	font-family: 'Barlow', sans-serif;
 }
+*, ::after, ::before {
+	box-sizing: border-box;
+}
 
+//* Index.html example styles
 .s-container {
 	.s-row {
 		> * {
@@ -19,5 +25,22 @@ body {
 			background-color: rgba(86, 61, 124, .15);
 			border: solid 1px rgba(86, 61, 124, .2);
 		}
+	}
+}
+
+.s-container-fluid.display-limits {
+	.s-row {
+		> * {
+			background-color: rgba(205, 209, 105, 0.15);
+			border: solid 1px rgba(205, 209, 105, 0.2);
+		}
+	}
+}
+
+.s-row {
+	> * > div:not(.s-row),
+	> * > div > p {
+		background-color: rgba(198, 70, 254, 0.15);
+		border: solid 1px rgba(198, 70, 254, 0.2);
 	}
 }
