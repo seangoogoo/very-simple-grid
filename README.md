@@ -34,4 +34,4 @@ The class `.s-col` is set to `flex: 1 0 0%`, which means that it takes up as muc
 
 Classes from `.s-col-1` to `.s-col-12` define the width of each column as a fraction of the row's total width. Each class has a width value that corresponds to the number of columns it should take up, with a minimum of `8.3333%` for the smallest column and a maximum of `100%` for the largest.
 
-Finally, there are media queries for small and medium-sized screens that define the same set of classes with different widths. These queries overwrite the previous styles on smaller screens, creating a responsive grid system.
+Finally, there are media queries, designed to fit DIVI module's one, for small and medium-sized screens that define the same set of classes with different widths. These queries overwrite the previous styles on smaller screens, creating a responsive grid system.
