@@ -1,6 +1,11 @@
+//* Begin copy
 @import './s-variables.scss';
 @import './s-grid.scss';
 @import './s-utilities.scss';
+//* End copy
+
+//***************************
+//* Index.html example styles
 //* Google font Barlow
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&display=swap');
 
@@ -14,7 +19,6 @@ body {
 	box-sizing: border-box;
 }
 
-//* Index.html example styles
 .s-container {
 	.s-row {
 		> * {

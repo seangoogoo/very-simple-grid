@@ -62,9 +62,9 @@ $s-spacerFormulae: (
 		}
 	}
 }
-@mixin spaceBuilder($breakPointName: 0, $spaceType: 'm') {
+@mixin spaceBuilder($spaceType: 'm', $breakPointName: null) {
 	@if not(map-has-key($s-breakpoints, $breakPointName)) {
-		@include spacePropertyLoop($spaceType, 0);
+		@include spacePropertyLoop($spaceType, $breakPointName);
 	}
 	@else {
 		@media (min-width: map-get($s-breakpoints, $breakPointName)) {
@@ -73,14 +73,14 @@ $s-spacerFormulae: (
 	}
 }
 //* Generate margins
-@include spaceBuilder(0, 'm');
+@include spaceBuilder('m');
 @each $bpName in map-keys($s-breakpoints) {
-	@include spaceBuilder($bpName, 'm');
+	@include spaceBuilder('m', $bpName);
 }
 //* Generate paddings
-@include spaceBuilder(0, 'p');
+@include spaceBuilder('p');
 @each $bpName in map-keys($s-breakpoints) {
-	@include spaceBuilder($bpName, 'p');
+	@include spaceBuilder('p', $bpName);
 }
 
 //**************************************
@@ -97,7 +97,7 @@ $displayProps: (
 	'flex',
 	'inline-flex'
 );
-@mixin displayPropsBuilder($bpName: 0) {
+@mixin displayPropsBuilder($bpName: null) {
 	$bp: if($bpName, '-#{$bpName}', '');
 	@if map-has-key($s-breakpoints, $bpName) {
 		@media (min-width: map-get($s-breakpoints, $bpName)) {
@@ -111,8 +111,8 @@ $displayProps: (
 	}
 	@else {
 		@each $display in $displayProps {
-			.d-#{$display},
-			.s-d-#{$display} {
+			.d#{$bp}-#{$display},
+			.s-d#{$bp}-#{$display} {
 				display: #{$display} !important;
 			}
 		}
@@ -131,7 +131,7 @@ $flexDirections: (
 	'column',
 	'column-reverse'
 );
-@mixin flexDirBuilder($bpName: 0) {
+@mixin flexDirBuilder($bpName: null) {
 	$bp: if($bpName, '-#{$bpName}', '');
 	@if map-has-key($s-breakpoints, $bpName) {
 		@media (min-width: map-get($s-breakpoints, $bpName)) {
@@ -145,8 +145,8 @@ $flexDirections: (
 	}
 	@else {
 		@each $flexDir in $flexDirections {
-			.flex-#{$flexDir},
-			.s-flex-#{$flexDir} {
+			.flex#{$bp}-#{$flexDir},
+			.s-flex#{$bp}-#{$flexDir} {
 				flex-direction: #{$flexDir} !important;
 			}
 		}
@@ -169,7 +169,7 @@ $justifyAlignments: (
 	'around': space-around,
 	'evenly': space-evenly
 );
-@mixin justifyContentBuilder($bpName: 0) {
+@mixin justifyContentBuilder($bpName: null) {
 	$bp: if($bpName, '-#{$bpName}', '');
 	@if map-has-key($s-breakpoints, $bpName) {
 		@media (min-width: map-get($s-breakpoints, $bpName)) {
@@ -183,8 +183,8 @@ $justifyAlignments: (
 	}
 	@else {
 		@each $align in map-keys($justifyAlignments) {
-			.justify-content-#{$align},
-			.s-justify-content-#{$align} {
+			.justify-content#{$bp}-#{$align},
+			.s-justify-content#{$bp}-#{$align} {
 				justify-content: #{map-get($justifyAlignments, $align)} !important;
 			}
 		}
@@ -203,7 +203,7 @@ $alignAlignments: (
 	'baseline': baseline,
 	'stretch': stretch
 );
-@mixin alignItemsBuilder($bpName: 0) {
+@mixin alignItemsBuilder($bpName: null) {
 	$bp: if($bpName, '-#{$bpName}', '');
 	@if map-has-key($s-breakpoints, $bpName) {
 		@media (min-width: map-get($s-breakpoints, $bpName)) {
@@ -217,8 +217,8 @@ $alignAlignments: (
 	}
 	@else {
 		@each $align in map-keys($alignAlignments) {
-			.align-items-#{$align},
-			.s-align-items-#{$align} {
+			.align-items#{$bp}-#{$align},
+			.s-align-items#{$bp}-#{$align} {
 				align-items: #{map-get($alignAlignments, $align)} !important;
 			}
 		}
