@@ -3,10 +3,10 @@
 ## Description
 Very Simple Grid, as its name suggests, is a very simple and lightweight responsive grid system for WordPress > DIVI usage. It is designed to be adapted to DIVI specific media queries and can easily be inserted in DIVI modules.
 
-As a reminder, DIVI media queies are :
-'sm':  479px,
+As a reminder, DIVI media queries are :
+`'sm':  479px,
 'md': 768px,
-'lg':  980px
+'lg':  980px`
   
 Very Simple Grid uses the Bootstrap class nomenclature for easy usage.
 
