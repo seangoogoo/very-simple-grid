@@ -39,7 +39,7 @@ Finally, there are media queries, designed to fit DIVI module's one, for small a
 
 ## Margin and padding responsive system
 
-The margin and padding classes in the CSS file use a naming convention similar to the Bootstrap one; it combines three elements: direction, breakpoint, and size using the follwing structure `.m{direction}-{breakpoint}-{size}` and `.p{direction}-{breakpoint}-{size}`.
+The margin and padding classes in the CSS file use a naming convention similar to the Bootstrap one; it combines three parameters: direction, breakpoint, and size using the follwing structure `.m{direction}-{breakpoint}-{size}` and `.p{direction}-{breakpoint}-{size}`.
 
 The `{direction}` can be one of the following: `t` (top), `r` (right), `b` (bottom),  `l` (left), `x` (horizontal), or `y` (vertical). 
 The `{breakpoint}` also reffers to the DIVI breakpoints `sm`: 479px, `md`: 768px and `lg`: 980px.
@@ -52,6 +52,7 @@ The margin and padding classes offer a simple and flexible way to add or remove 
 ## Responsive display properties
 
 The display properties classes are structured this way: `.d-{breakpoint}-{displayProperty}`.
+All display properties uses the {breakpoint} parameter as previously described.
 
 Available display properties are:
 - `.d-none` and `.s-d-none` classes hide the element they are applied to.
@@ -64,5 +65,4 @@ Available display properties are:
 - `.d-table-row` and `.s-d-table-row` classes make the element they are applied to display as a table row element.
 - `.d-flex` and `.s-d-flex classes` make the element they are applied to display as a flex container.
 - `.d-inline-flex` and `.s-d-inline-flex` classes make the element they are applied to display as an inline flex container.
-
 
