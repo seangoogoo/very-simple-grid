@@ -232,9 +232,28 @@ $alignAlignments: (
 //****************
 //* Text alignment
 $textAlignments: ("left", "right", "center", "revert");
-@each $textAlign in $textAlignments {
-	.text-#{$textAlign},
-	.s-text-#{$textAlign} {
-			text-align: #{$textAlign} !important;
-  }
+@mixin textAlignBuilder($bpName: null) {
+	$bp: if($bpName, '-#{$bpName}', '');
+	@if map-has-key($s-breakpoints, $bpName) {
+		@media (min-width: map-get($s-breakpoints, $bpName)) {
+			@each $textAlign in $textAlignments {
+				.text#{$bp}-#{$textAlign},
+				.s-text#{$bp}-#{$textAlign} {
+						text-align: #{$textAlign} !important;
+				}	
+			}
+		}
+	}
+	@else {
+		@each $textAlign in $textAlignments {
+			.text-#{$textAlign},
+			.s-text-#{$textAlign} {
+					text-align: #{$textAlign} !important;
+			}
+		}
+	}
+}
+@include textAlignBuilder();
+@each $bpName in map-keys($s-breakpoints) {
+	@include textAlignBuilder($bpName);
 }

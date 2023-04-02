@@ -2255,6 +2255,60 @@
   text-align: revert !important;
 }
 
+@media (min-width: 479px) {
+  .text-sm-left,
+  .s-text-sm-left {
+    text-align: left !important;
+  }
+  .text-sm-right,
+  .s-text-sm-right {
+    text-align: right !important;
+  }
+  .text-sm-center,
+  .s-text-sm-center {
+    text-align: center !important;
+  }
+  .text-sm-revert,
+  .s-text-sm-revert {
+    text-align: revert !important;
+  }
+}
+@media (min-width: 768px) {
+  .text-md-left,
+  .s-text-md-left {
+    text-align: left !important;
+  }
+  .text-md-right,
+  .s-text-md-right {
+    text-align: right !important;
+  }
+  .text-md-center,
+  .s-text-md-center {
+    text-align: center !important;
+  }
+  .text-md-revert,
+  .s-text-md-revert {
+    text-align: revert !important;
+  }
+}
+@media (min-width: 980px) {
+  .text-lg-left,
+  .s-text-lg-left {
+    text-align: left !important;
+  }
+  .text-lg-right,
+  .s-text-lg-right {
+    text-align: right !important;
+  }
+  .text-lg-center,
+  .s-text-lg-center {
+    text-align: center !important;
+  }
+  .text-lg-revert,
+  .s-text-lg-revert {
+    text-align: revert !important;
+  }
+}
 html, body {
   margin: 0;
 }
