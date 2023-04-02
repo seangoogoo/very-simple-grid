@@ -42,7 +42,8 @@ Finally, there are media queries, designed to fit DIVI module's one, for small a
 The margin and padding classes in the CSS file use a naming convention similar to the Bootstrap one; it combines three elements: direction, breakpoint, and size using the follwing structure `.m{direction}-{breakpoint}-{size}` and `.p{direction}-{breakpoint}-{size}`.
 
 The `{direction}` can be one of the following: `t` (top), `r` (right), `b` (bottom),  `l` (left), `x` (horizontal), or `y` (vertical). 
-The breakpoint also reffers to the DIVI breakpoints `sm`: 479px, `md`: 768px and `lg`: 980px. And `{size}` can be a number from `0` to `5`, indicating the size of the margin or the padding.
+The `{breakpoint}` also reffers to the DIVI breakpoints `sm`: 479px, `md`: 768px and `lg`: 980px.
+And `{size}` can be a number from `0` to `5`, indicating the size of the margin or the padding.
 
 For example, the class `.m-t-md-4` would add a margin of `1.5` times the value of `$s-spacer` (custom variable) to the top of an element when the screen width is at least `768px` (md breakpoint). The class `.p-b-lg-0` would remove the bottom padding of an element when the screen width is at least `980px` (lg breakpoint).
 
