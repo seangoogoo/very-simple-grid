@@ -52,7 +52,7 @@ The margin and padding classes offer a simple and flexible way to add or remove 
 ## Responsive display properties
 
 The display properties classes are structured this way: `.d-{breakpoint}-{displayProperty}`.
-All display properties uses the {breakpoint} parameter as previously described.
+All display properties uses the `{breakpoint}` parameter as previously described.
 
 Available display properties are:
 - `.d-none` and `.s-d-none` classes hide the element they are applied to.
