@@ -48,3 +48,21 @@ And `{size}` can be a number from `0` to `5`, indicating the size of the margin 
 For example, the class `.m-t-md-4` would add a margin of `1.5` times the value of `$s-spacer` (custom variable) to the top of an element when the screen width is at least `768px` (md breakpoint). The class `.p-b-lg-0` would remove the bottom padding of an element when the screen width is at least `980px` (lg breakpoint).
 
 The margin and padding classes offer a simple and flexible way to add or remove margins and paddings to elements on different screen sizes.
+
+## Responsive display properties
+
+The display properties classes are structured this way: `.d-{breakpoint}-{displayProperty}`.
+
+Available display properties are:
+- `.d-none` and `.s-d-none` classes hide the element they are applied to.
+- `.d-inline` and `.s-d-inline` classes make the element they are applied to display as an inline element.
+- `.d-inline-block` and `.s-d-inline-block` classes make the element they are applied to display as an inline block element.
+- `.d-block` and `.s-d-block` classes make the element they are applied to display as a block element.
+- `.d-grid` and `.s-d-grid` classes make the element they are applied to display as a grid element.
+- `.d-table` and `.s-d-table` classes make the element they are applied to display as a table element.
+- `.d-table-cell` and `.s-d-table-cell` classes make the element they are applied to display as a table cell element.
+- `.d-table-row` and `.s-d-table-row` classes make the element they are applied to display as a table row element.
+- `.d-flex` and `.s-d-flex classes` make the element they are applied to display as a flex container.
+- `.d-inline-flex` and `.s-d-inline-flex` classes make the element they are applied to display as an inline flex container.
+
+
