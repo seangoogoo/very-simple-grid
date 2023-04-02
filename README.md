@@ -68,7 +68,7 @@ Available display properties are:
 
 ## Responsive flex directions
 
-In conjunction with `.d-flex`or `s-d-flex`, flex directions classes offers abilities to set flexbox directions at several media queries using this structure: `.flex{breakpoint}-{flex-direction}`or `.s-flex{breakpoint}-{flex-direction}`.
+In conjunction with `.d-flex`or `s-d-flex`, flex directions classes offers abilities to set flexbox directions at several media queries using this pattern: `.flex{breakpoint}-{flex-direction}`or `.s-flex{breakpoint}-{flex-direction}`.
 
 - `.flex-row` and `.s-flex-row`: Both classes set the flex-direction property to `row` with the `!important` flag. These classes can be used to make an element a flex container with items arranged horizontally in a row.
 - `.flex-row-reverse` and `.s-flex-row-reverse`: Both classes set the flex-direction property to `row-reverse` with the `!important` flag. These classes can be used to make an element a flex container with items arranged horizontally in reverse order.
