@@ -75,3 +75,26 @@ In conjunction with `.d-flex`or `s-d-flex`, flex directions classes offers abili
 - `.flex-column` and `.s-flex-column`: Both classes set the flex-direction property to `column` with the `!important` flag. These classes can be used to make an element a flex container with items arranged vertically in a column.
 - `.flex-column-reverse` and `.s-flex-column-reverse`: Both classes set the flex-direction property to `column-reverse` with the `!important` flag. These classes can be used to make an element a flex container with items arranged vertically in reverse order.
 
+## Responsive flex alignments properties
+
+In conjunction with `.d-flex`or `s-d-flex`, flex alignments classes offers abilities to set flexbox alignment items on `x`and `y`axis at several media queries using this pattern: `.justify-content-{breakpoint}-{flex-alignment}` or `.s-justify-content-{breakpoint}-{flex-alignment}` and `.align-items-{breakpoint}-{flex-alignment}` or `.s-align-items-{breakpoint}-{flex-alignment}`.
+
+### Justify-content classes
+
+- `.justify-content-start`, `.s-justify-content-start`: aligns elements to the left of the container.
+- `.justify-content-end`, `.s-justify-content-end`: aligns elements to the right of the container.
+- `.justify-content-center`, `.s-justify-content-center`: centers elements horizontally in the container.
+- `.justify-content-between`, `.s-justify-content-between`: evenly distributes elements along the main axis, with the first element aligned to the start and the last element aligned to the end.
+- `.justify-content-around`, `.s-justify-content-around`: evenly distributes elements along the main axis, with equal space around them.
+- `.justify-content-evenly`, `.s-justify-content-evenly`: evenly distributes elements along the main axis, with equal space between them.
+
+### Align-items classes
+
+- `.align-items-start`, `.s-align-items-start`: aligns elements to the top of the container.
+- `.align-items-end`, `.s-align-items-end`: aligns elements to the bottom of the container.
+- `.align-items-center`, `.s-align-items-center`: centers elements vertically in the container.
+- `.align-items-baseline`, `.s-align-items-baseline`: aligns elements such that their baselines align.
+- `.align-items-stretch`, `.s-align-items-stretch`: stretches elements to fill the container along the cross-axis.
+
+
+
