@@ -22,7 +22,7 @@ Very Simple grid provides :
 - text alignment classes
 
 
-## Flex grid system
+## Flex responsive grid system
 
 Very Simple Grid defines a set of styles for a grid system. It first sets two custom properties on the `:root` selector to define the gutter size and the maximum width of the container.
 
@@ -35,3 +35,15 @@ The class `.s-col` is set to `flex: 1 0 0%`, which means that it takes up as muc
 Classes from `.s-col-1` to `.s-col-12` define the width of each column as a fraction of the row's total width. Each class has a width value that corresponds to the number of columns it should take up, with a minimum of `8.3333%` for the smallest column and a maximum of `100%` for the largest.
 
 Finally, there are media queries, designed to fit DIVI module's one, for small and medium-sized screens that define the same set of classes with different widths. These queries overwrite the previous styles on smaller screens, creating a responsive grid system.
+
+
+## Margin and padding responsive system
+
+The margin and padding classes in the CSS file use a naming convention similar to the Bootstrap one; it combines three elements: direction, breakpoint, and size using the follwing structure `.m{direction}-{breakpoint}-{size}` and `.p{direction}-{breakpoint}-{size}`.
+
+The `{direction}` can be one of the following: `t` (top), `r` (right), `b` (bottom),  `l` (left), `x` (horizontal), or `y` (vertical). 
+The breakpoint also reffers to the DIVI breakpoints `sm`: 479px, `md`: 768px and `lg`: 980px. And `{size}` can be a number from `0` to `5`, indicating the size of the margin or the padding.
+
+For example, the class `.m-t-md-4` would add a margin of `1.5` times the value of `$s-spacer` (custom variable) to the top of an element when the screen width is at least `768px` (md breakpoint). The class `.p-b-lg-0` would remove the bottom padding of an element when the screen width is at least `980px` (lg breakpoint).
+
+The margin and padding classes offer a simple and flexible way to add or remove margins and paddings to elements on different screen sizes.
