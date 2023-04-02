@@ -19,7 +19,7 @@ Very Simple grid provides :
 - display properties classes with breakpoints,
 - flex direction classes with breakpoints,
 - flex justify-content and align-items classes with breakpoints,
-- text alignment classes
+- text alignment classes with breakpoints.
 
 
 ## Flex responsive grid system
@@ -96,5 +96,9 @@ In conjunction with `.d-flex`or `s-d-flex`, flex alignments classes offers abili
 - `.align-items-baseline`, `.s-align-items-baseline`: aligns elements such that their baselines align.
 - `.align-items-stretch`, `.s-align-items-stretch`: stretches elements to fill the container along the cross-axis.
 
+## Text alignment classes
 
+The classes are named using a consistent pattern: `.text-{breakpoint}-{alignment}` and `.s-text-{breakpoint}-{alignment}`. The `{breakpoint}` portion of the class name indicates the screen width at which the alignment should be applied, and the `{alignment}` portion indicates the desired alignment.
+
+There are four alignment options available: `left`, `right"`, `center`, and `revert`. The `revert" option is used to reset the text alignment to the default value for the element, which can be useful in situations where the alignment has been set by some other CSS rule and needs to be overridden.
 
